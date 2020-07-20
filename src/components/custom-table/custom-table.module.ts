@@ -1,16 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CustomTableComponent } from './custom-table.component';
+import { CustomTableWrapperComponent } from './custom-table-wrapper.component';
 import { RouterModule } from '@angular/router';
+import { CustomTemplateDirective } from '../../directives/custom-template.directive';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
     declarations: [
-        CustomTableComponent
+        CustomTableComponent,
+        CustomTemplateDirective,
+        CustomTableWrapperComponent
     ],
     imports: [
+        CommonModule,
         RouterModule.forChild([{
-            path: '', component: CustomTableComponent
+            path: '', component: CustomTableWrapperComponent
         }])
     ],
-    providers: []
+    providers: [],
+    exports: [CustomTemplateDirective, CommonModule]
 })
 export class CustomTableModule { }
