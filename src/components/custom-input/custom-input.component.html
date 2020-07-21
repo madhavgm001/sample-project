@@ -1,0 +1,14 @@
+<!-- <div style="display: flex; flex-direction: row; justify-content: space-between; margin: 10px;">
+    <label for="custom-input" style="flex: 1;">
+        Label
+    </label>
+    <input name="custom-input" type = "text" [ngModel] = "inputValue" (ngModelChange) = "inputValue = $event" style="flex: 1;"/>
+</div> -->
+
+<div class="row p-0 m-2">
+    <div class="col-3 p-2">
+        <!-- <ng-content select="label"></ng-content> -->
+        Label
+    </div>
+    <input class="col-9" id="custom-input" name="custom-input" type = "text" [ngModel] = "inputValue" (ngModelChange) = "inputValue = $event" />
+</div>

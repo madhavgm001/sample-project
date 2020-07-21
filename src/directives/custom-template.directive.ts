@@ -5,13 +5,10 @@ import { Directive, Input, TemplateRef } from '@angular/core';
 })
 export class CustomTemplateDirective {
 
-  @Input() type: string;
+  @Input('customTemplate')
+  private name: string;
 
-  @Input('customTemplate') name: string;
-
-  constructor(public template: TemplateRef<any>) {
-    console.log(template);
-   }
+  constructor(public template: TemplateRef<any>) { }
 
   getTemplateName(): string {
     return this.name;

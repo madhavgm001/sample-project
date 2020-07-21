@@ -6,6 +6,10 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('../components/custom-table/custom-table.module').then(m => m.CustomTableModule)
+  },
+  {
+    path: 'custom-input',
+    loadChildren: () => import('../components/custom-input/custom-input.module').then(m => m.CustomInputModule)
   }
 ];
 

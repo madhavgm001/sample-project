@@ -1,31 +1,17 @@
 <div class="table-responsive">
     <table class="table table-bordered">
-        <thead class="thead-light">
-            <tr>
-                <th>1</th>
-                <th>2</th>
-                <th>3</th>
-                <th>4</th>
-                <th>5</th>
-                <th>6</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>5</td>
-                <td>6</td>
-            </tr>
-        </tbody>
-        <tfoot>
-            
-        </tfoot>
+        <ng-container *ngTemplateOutlet="!header ? getTemplateRef('header') : defaultTemplate; context: {$implicit: header}"></ng-container>
+        <ng-container *ngTemplateOutlet="!body ? getTemplateRef('body') : defaultTemplate; context: {$implicit: body}"></ng-container>
+        <ng-container *ngTemplateOutlet="!footer ? getTemplateRef('footer') : defaultTemplate; context: {$implicit: footer}"></ng-container>
     </table>
 </div>
 
-<ng-container [ngTemplateOutlet] = "getTemplateRef('header')"></ng-container>
-<!-- <ng-content select = "getTemplateRef('body')"></ng-content>
-<ng-content select = "getTemplateRef('footer')"></ng-content> -->
+<ng-template #defaultTemplate let-data>
+    <thead *ngIf = "data.value.length > 0">
+        <tr>
+            <th *ngFor = "let label of data.value">
+                {{generateContent(label, data.bindLabel)}}
+            </th>
+        </tr>
+    </thead>
+</ng-template>

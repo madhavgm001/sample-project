@@ -1,12 +1,37 @@
 Wrapper
 <custom-table>
-    <ng-template customTemplate = "header">
-        <span>A</span>
+    <ng-template customTemplate="header">
+        <thead class="thead-light">
+            <tr>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>
+            </tr>
+        </thead>
     </ng-template>
-    <ng-template customTemplate = "body">
-        <span>B</span>
+    <ng-template customTemplate="body">
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+            </tr>
+        </tbody>
     </ng-template>
-    <ng-template customTemplate = "footer">
-        <span>C</span>
+    <ng-template customTemplate="footer">
+        <tfoot>
+
+        </tfoot>
     </ng-template>
+</custom-table>
+
+Second table
+
+<custom-table [header] = "headerData" [body] = "headerData" [footer] = "headerData">
 </custom-table>
